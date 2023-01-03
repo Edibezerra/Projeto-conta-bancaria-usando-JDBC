@@ -8,9 +8,9 @@ import model.util.Conexao;
 public class Principal {
 
 	public static void main(String[] args) {
-		
+
 //		============Conta================
-		
+
 		Conexao conexao = new Conexao();
 //		conn = conexao.getConnection();
 
@@ -21,15 +21,14 @@ public class Principal {
 		conta.setSaldo(500.0);
 		conta.setLimite(1000.0);
 		contaDAO.salvar(conta);
-		
+
 //		conta.setNumero(6878);
 //		conta.setSaldo(50.0);
 //		conta.setLimite(200.0);
 //		contaDAO.alterar(conta);
 //		
 //		contaDAO.remover(6878);
-		
-		
+
 //		Conta conta1 = contaDAO.pesquisar(6878);
 //		System.out.println(conta1.toString());
 //		
@@ -39,10 +38,9 @@ public class Principal {
 //		}
 //	}
 ////}
-		
+
 //		=============Endereço==========================
-		
-		
+
 //		
 //		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();				
 //		Endereco endereco = new Endereco();
@@ -52,15 +50,15 @@ public class Principal {
 //		endereco.setRua("Av Norte");
 //		endereco.setComplemento("apt");
 //		enderecoDAO.salvar(endereco);
-		
+
 //		endereco.setId(200);
 //		endereco.setNumero(58);
 //		endereco.setRua("Av 1");
 //		endereco.setComplemento("CS");
 //		enderecoDAO.alterar(endereco);
-				
+
 //		enderecoDAO.remover(85);
-				
+
 //		Endereco endereco2 = enderecoDAO.pesquisar(200);
 //		System.out.println(endereco2.toString());
 //		
@@ -68,9 +66,9 @@ public class Principal {
 //		for (Endereco c : listarEndereco) {
 //			System.out.println(c.toString());
 //		}
-		
+
 //		============Pessoa=====================
-		
+
 //		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
 //		PessoaDAO pessoaDAO = new PessoaDAOImpl();						
 //		ContaDAO contaDAO = new ContaDAOImpl();
@@ -106,35 +104,33 @@ public class Principal {
 //		System.out.println(pessoa.toString());
 //		
 //		pessoaDAO.salvar(pessoa);
-		
+
 //		=================ALTERAR======================		
-		
+
 //		pessoa.setNome("Ric");
 //		pessoa.setCpf("0236978748");
 //		pessoa.setSexo("H");
 //		pessoa.setIdade(02);
 //		pessoa.getEndereco().getId();
 //		pessoa.getConta().getNumero();
-		
+
 //		pessoaDAO.salvar(pessoa);
 //		pessoaDAO.alterar(pessoa);
-		
-		
+
 //		pessoaDAO.remover("02369787487");
 //		
 //		PessoaDAO pessoaDAO = new PessoaDAOImpl();						
 //		Pessoa pessoa = new Pessoa();
-		
+
 //		Pessoa pessoa2 = pessoaDAO.pesquisar("12345678910");
 //		System.out.println(pessoa2.toString());
-		
-	//		List<Pessoa> listaPessoa = pessoaDAO.listaTodos();
-	//		for (Pessoa c : listaPessoa) {
-	//			System.out.println(c.toString());	
-		
+
+		// List<Pessoa> listaPessoa = pessoaDAO.listaTodos();
+		// for (Pessoa c : listaPessoa) {
+		// System.out.println(c.toString());
+
 //		
 //		pessoaDAO.remover("02369787489");
-		
-		}
-	}
 
+	}
+}

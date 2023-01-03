@@ -5,7 +5,7 @@ import java.util.List;
 import model.Endereco;
 
 public interface EnderecoDAO {
-	
+
 	public int getSequence();
 
 	public void salvar(Endereco endereco);

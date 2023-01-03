@@ -19,23 +19,23 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 	public int getSequence() {
 		Connection conn = conexao.getConnection();
 		Integer retorno = null;
-		
+
 		String sql = "SELECT S_ID_ENDERECO.NEXTVAL AS SEQUENCE FROM DUAL";
-		
+
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				retorno = rs.getInt("SEQUENCE");
 			}
 		} catch (Exception e) {
 			System.out.println("Erro ao inserir a sequence" + e.getMessage());
-			
+
 		} finally {
 			conexao.fecharConexao(conn);
 		}
-					
+
 		return retorno;
 	}
 
@@ -62,13 +62,11 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 		}
 	}
 
-	
-
 	@Override
 	public void alterar(Endereco endereco) {
 		Connection conn = conexao.getConnection();
 
-		String sql ="UPDATE ENDERECO SET NUMERO = ? , RUA = ? , COMPLEMENTO = ? WHERE  ID_ENDERECO = ?";
+		String sql = "UPDATE ENDERECO SET NUMERO = ? , RUA = ? , COMPLEMENTO = ? WHERE  ID_ENDERECO = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, endereco.getNumero());
@@ -76,7 +74,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 			ps.setString(3, endereco.getComplemento());
 			ps.setInt(4, endereco.getId());
 			ps.executeUpdate();
-		
+
 			System.out.println("Endereço atualizada com sucesso");
 
 		} catch (Exception e) {
@@ -92,7 +90,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 	public void remover(int id) {
 		Connection conn = conexao.getConnection();
 
-		String sql = "DELETE FROM ENDERECO WHERE ID_ENDERECO = ?" ;
+		String sql = "DELETE FROM ENDERECO WHERE ID_ENDERECO = ?";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -108,53 +106,52 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 		} finally {
 			conexao.fecharConexao(conn);
+		}
 	}
-}
-	
+
 	@Override
 	public Endereco pesquisar(Integer id) {
 		Connection conn = conexao.getConnection();
 		Endereco endereco = new Endereco();
-		
+
 		String sql = "SELECT * FROM ENDERECO WHERE ID_ENDERECO = ? ";
-		
+
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
-				
+
 				endereco.setId(rs.getInt("id_endereco"));
 				endereco.setNumero(rs.getInt("numero"));
 				endereco.setRua(rs.getString("rua"));
 				endereco.setComplemento(rs.getString("complemento"));
-				
+
 			}
 		} catch (Exception e) {
-			System.out.println(" Erro ao pesquisar endereço no banco " + e.getMessage());	
-				
+			System.out.println(" Erro ao pesquisar endereço no banco " + e.getMessage());
+
 		} finally {
 			conexao.fecharConexao(conn);
 		}
-				
+
 		return endereco;
 	}
-
 
 	@Override
 	public List<Endereco> listarTodos() {
 		Connection conn = conexao.getConnection();
 		List<Endereco> retorno = new ArrayList<Endereco>();
-	
+
 		String sql = "SELECT * FROM ENDERECO";
-		
+
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
-				
+
 				Endereco endereco = new Endereco();
 				endereco.setId(rs.getInt("id_endereco"));
 				endereco.setNumero(rs.getInt("numero"));
@@ -163,14 +160,13 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 				retorno.add(endereco);
 			}
 		} catch (Exception e) {
-			System.out.println(" Erro ao pesquisar endereco " + e.getMessage());	
-				
+			System.out.println(" Erro ao pesquisar endereco " + e.getMessage());
+
 		} finally {
 			conexao.fecharConexao(conn);
-		}	
-					
-		return retorno;
-	}	
-		
-}
+		}
 
+		return retorno;
+	}
+
+}
